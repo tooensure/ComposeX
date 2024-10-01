@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ComposeX</string>
+    <string name="name">Shawn Bellazan</string>
+    <string name="title">Software Development</string>
 </resources>
