@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.coil.compose)
+    implementation(libs.repo)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -60,3 +61,38 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            from(components["release"])
+            groupId = "shawn.delaine.bellazan" // Change this to your desired group ID
+            artifactId = "compose-ui-library" // Change to your desired artifact ID
+            version = "1.0.0"
+
+            // Artifact details
+            pom {
+                name.set("Compose UI Library")
+                description.set("A reusable Jetpack Compose component library")
+                url.set("https://github.com/tooensure/ComposeX")
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("Shawn-Bellazan-jr")
+                        name.set("Shawn Bellazan")
+                        email.set("shawn_bellazan@outlook.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:github.com/Shawn-Bellazan-jr/yourrepo.git")
+                    developerConnection.set("scm:git:ssh://github.com/yourusername/yourrepo.git")
+                    url.set("https://github.com/yourusername/yourrepo")
+                }
+            }
+        }
+    }
+}
